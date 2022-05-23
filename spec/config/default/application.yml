@@ -8,3 +8,6 @@ eureka:
       defaultZone: http://localhost:10050/eureka/
   instance:
     prefer-ip-address: true
+
+cors:
+  allowedOrigins: http://localhost:3000
