@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: recipe-service
+
+server:
+  port: 10010
