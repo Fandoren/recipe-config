@@ -1,6 +1,20 @@
 spring:
   application:
     name: gateway-service
-
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: http://localhost:10010/api/v1
+          predicates:
+            - Path=/products/{segment}
+        - id: tag-service
+          uri: http://localhost:10010/api/v1
+          predicates:
+            - Path=/tags/{segment}
+        - id: step-service
+          uri: http://localhost:10010/api/v1
+          predicates:
+            - Path=/steps/{segment}
 server:
   port: 10060
