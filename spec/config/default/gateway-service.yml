@@ -4,17 +4,18 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: recipe-service
+          uri: http://localhost:10010
+          predicates:
+            - Path=/api/v1/recipes/**
         - id: product-service
-          uri: http://localhost:10010/api/v1
+          uri: http://localhost:10010
           predicates:
-            - Path=/products/{segment}
+            - Path=/api/v1/products/**
         - id: tag-service
-          uri: http://localhost:10010/api/v1
+          uri: http://localhost:10010
           predicates:
-            - Path=/tags/{segment}
-        - id: step-service
-          uri: http://localhost:10010/api/v1
-          predicates:
-            - Path=/steps/{segment}
+            - Path=/api/v1/tags/**
+
 server:
   port: 10060
