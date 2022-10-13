@@ -24,6 +24,26 @@ spring:
           uri: http://localhost:10010
           predicates:
             - Path=/api/v1/tags/**
+        - id: user-service-signUp
+          uri: http://localhost:10020
+          predicates:
+            - Path=/api/v1/users/signUp/**
+        - id: user-service-signIn
+          uri: http://localhost:10020
+          predicates:
+            - Path=/api/v1/users/signIn/**
+        - id: user-service
+          uri: http://localhost:10020
+          predicates:
+            - Path=/api/v1/users/validateToken/**
+        - id: user-service-getAll
+          uri: http://localhost:10020
+          predicates:
+            - Path=/api/v1/users/getAll/**
+          filters:
+            - name: AuthFilter
+              args:
+                roles: ADMIN
 
 server:
   port: 10060
