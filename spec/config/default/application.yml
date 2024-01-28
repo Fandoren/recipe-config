@@ -5,7 +5,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:10050/eureka/
   instance:
-    prefer-ip-address: true
+    hostname: ${DOCKER_HOST:localhost}
+    prefer-ip-address: false
 
 cors:
   allowedOrigins: http://localhost:3000
