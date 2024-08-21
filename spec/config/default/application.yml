@@ -1,12 +1,11 @@
 eureka:
   client:
     region: default
-    registry-fetch-interval-seconds: 5
+    registry-fetch-interval-seconds: 15
+    registerWithEureka: true
+    fetchRegistry: true
     service-url:
-      defaultZone: http://localhost:10050/eureka/
-  instance:
-    hostname: ${DOCKER_HOST:localhost}
-    prefer-ip-address: false
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:10050}/eureka/
 
 management:
   endpoint:
